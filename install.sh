@@ -16,7 +16,7 @@ sudo apt install -y wget
 sudo apt install -y curl
 sudo apt install -y dos2unix
 
-source <(curl -sSL 'https://raw.githubusercontent.com/Rerechan02/UDP/main/module/module')
+source <(curl -sSL 'https://raw.githubusercontent.com/awanklod/udpc/main/module/module')
 
 time_reboot() {
   print_center -ama "${a92:-System/Server Reboot In} $1 ${a93:-Seconds}"
@@ -62,28 +62,28 @@ else
   systemctl stop udp-request &>/dev/null
 
  # [+get files ⇣⇣⇣+]
-  source <(curl -sSL 'https://raw.githubusercontent.com/Rerechan02/UDP/main/module/module') &>/dev/null
-  wget -O /etc/UDPCustom/module 'https://raw.githubusercontent.com/Rerechan02/UDP/main/module/module' &>/dev/null
+  source <(curl -sSL 'https://raw.githubusercontent.com/awanklod/udpc/main/module/module') &>/dev/null
+  wget -O /etc/UDPCustom/module 'https://raw.githubusercontent.com/awanklod/udpc/main/module/module' &>/dev/null
   chmod +x /etc/UDPCustom/module
 
-  wget "https://raw.githubusercontent.com/Rerechan02/UDP/main/bin/udp-custom-linux-amd64" -O /root/udp/udp-custom &>/dev/null
-  wget "https://raw.githubusercontent.com/Rerechan02/UDP/main/bin/udp-request-linux-amd64" -O /usr/bin/udp-request &>/dev/null
+  wget "https://raw.githubusercontent.com/awanklod/udpc/main/bin/udp-custom-linux-amd64" -O /root/udp/udp-custom &>/dev/null
+  wget "https://raw.githubusercontent.com/awanklod/udpc/main/bin/udp-request-linux-amd64" -O /usr/bin/udp-request &>/dev/null
   chmod +x /root/udp/udp-custom
   chmod +x /usr/bin/udp-request
 
-  wget -O /etc/limiter.sh 'https://raw.githubusercontent.com/Rerechan02/UDP/main/module/limiter.sh'
+  wget -O /etc/limiter.sh 'https://raw.githubusercontent.com/awanklod/udpc/main/module/limiter.sh'
   cp /etc/limiter.sh /etc/UDPCustom
   chmod +x /etc/limiter.sh
   chmod +x /etc/UDPCustom
   
   # [+udpgw+]
-  wget -O /etc/udpgw 'https://raw.githubusercontent.com/Rerechan02/UDP/main/module/udpgw'
+  wget -O /etc/udpgw 'https://raw.githubusercontent.com/awanklod/udpc/main/module/udpgw'
   mv /etc/udpgw /bin
   chmod +x /bin/udpgw
 
   # [+service+]
-  wget -O /etc/udpgw.service 'https://raw.githubusercontent.com/Rerechan02/UDP/main/config/udpgw.service'
-  wget -O /etc/udp-custom.service 'https://raw.githubusercontent.com/Rerechan02/UDP/main/config/udp-custom.service'
+  wget -O /etc/udpgw.service 'https://raw.githubusercontent.com/awanklod/udpc/main/config/udpgw.service'
+  wget -O /etc/udp-custom.service 'https://raw.githubusercontent.com/awanklod/udpc/main/config/udp-custom.service'
   
   mv /etc/udpgw.service /etc/systemd/system
   mv /etc/udp-custom.service /etc/systemd/system
@@ -98,11 +98,11 @@ else
   systemctl start udp-custom &>/dev/null
 
   # [+config+]
-  wget "https://raw.githubusercontent.com/Rerechan02/UDP/main/config/config.json" -O /root/udp/config.json &>/dev/null
+  wget "https://raw.githubusercontent.com/awanklod/udpc/main/config/config.json" -O /root/udp/config.json &>/dev/null
   chmod 644 /root/udp/config.json
 
   # [+menu+]
-  wget -O /usr/bin/udp 'https://raw.githubusercontent.com/Rerechan02/UDP/main/module/udp' 
+  wget -O /usr/bin/udp 'https://raw.githubusercontent.com/awanklod/udpc/main/module/udp' 
   chmod +x /usr/bin/udp
   ufw disable &>/dev/null
   apt remove netfilter-persistent -y
